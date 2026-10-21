@@ -11,6 +11,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        // Behind Vercel's proxy: trust its forwarded host/scheme so URLs come out as https
+        $middleware->trustProxies(at: '*');
+
         // Payment gateway webhook is server-to-server and cannot send a CSRF token
         $middleware->validateCsrfTokens(except: [
             'payment/callback',

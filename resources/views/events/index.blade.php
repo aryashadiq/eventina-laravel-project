@@ -26,7 +26,7 @@
                                     <div class="bg-white shadow-xl rounded-lg overflow-hidden mb-7">
                                         <div class="relative mx-4 mt-4 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
                                             @php $img = $event->thumbnail ?? $event->banner ?? null; @endphp
-                                            <img src="{{ $img ? asset('storage/' . $img) : asset('images/banner.jpg') }}" alt="Event banner" />
+                                            <img src="{{ $img ? \Illuminate\Support\Facades\Storage::url($img) : asset('images/banner.jpg') }}" alt="Event banner" />
                                             <div class="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-tr from-transparent via-transparent to-black/60"></div>
                                         </div>
 

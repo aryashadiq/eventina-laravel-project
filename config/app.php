@@ -52,7 +52,8 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    // On Vercel, fall back to the project's production domain if APP_URL is not set.
+    'url' => env('APP_URL', env('VERCEL_PROJECT_PRODUCTION_URL') ? 'https://' . env('VERCEL_PROJECT_PRODUCTION_URL') : 'http://localhost'),
 
     /*
     |--------------------------------------------------------------------------

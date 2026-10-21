@@ -25,6 +25,7 @@ class EventForm
 
                 FileUpload::make('thumbnail')
                     ->image()
+                    ->visibility('public')
                     ->directory('events/thumbnails')
                     ->imagePreviewHeight('150')
                     ->panelAspectRatio('16:9'),

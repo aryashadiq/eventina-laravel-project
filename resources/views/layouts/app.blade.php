@@ -7,10 +7,8 @@
     <title>@yield('title', 'Eventina')</title>
         <!-- Google font: Archivo with its width axis, used condensed for poster headlines -->
         <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
-        <!-- Built assets (Tailwind + custom CSS) served by Vite -- use `npm run dev` to enable hot reload -->
-        @vite(['public/css/app.css', 'resources/js/app.js'])
-        <!-- Fallback to the compiled CSS file so styles are available when Vite dev server is not running -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <!-- Precompiled Tailwind + DaisyUI (npm run build); the version busts browser caches after a rebuild -->
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{ @filemtime(public_path('css/app.css')) }}">
         <!-- Flowbite CSS (CDN) - ensures carousel styling works until assets are rebuilt -->
         <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
 

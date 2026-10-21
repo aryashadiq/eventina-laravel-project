@@ -20,6 +20,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if ($this->app->environment('production')) {
+            \Illuminate\Support\Facades\URL::forceScheme('https');
+        }
+
         // Register custom admin user provider that only authenticates admin users
         Auth::provider('admins', function ($app, array $config) {
             return new \App\Auth\AdminUserProvider(

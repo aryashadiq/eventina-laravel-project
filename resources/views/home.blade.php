@@ -14,7 +14,7 @@
 
         return ($subevent->tickets->count() > 1 ? 'mulai ' : '') . $amount;
     };
-    $thumbnail = fn ($subevent) => $subevent->event->thumbnail ? asset('storage/' . $subevent->event->thumbnail) : null;
+    $thumbnail = fn ($subevent) => $subevent->event->thumbnail ? \Illuminate\Support\Facades\Storage::url($subevent->event->thumbnail) : null;
     $date = fn ($subevent, $format) => $subevent->start_at->locale('id')->translatedFormat($format);
 @endphp
 

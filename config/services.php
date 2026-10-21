@@ -36,7 +36,8 @@ return [
         'api_key' => env('PAKASIR_API_KEY'),
         'gateway_url' => env('PAKASIR_GATEWAY_URL'),
         'api_url' => env('PAKASIR_API_URL'),
-        'redirect_url' => env('PAKASIR_REDIRECT_URL'),
+        // Where Pakasir sends the buyer back to; defaults to the app's own URL
+        'redirect_url' => env('PAKASIR_REDIRECT_URL', env('APP_URL', env('VERCEL_PROJECT_PRODUCTION_URL') ? 'https://' . env('VERCEL_PROJECT_PRODUCTION_URL') : null)),
     ],
 
 ];

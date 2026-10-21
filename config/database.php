@@ -110,6 +110,11 @@ return [
             'prefix_indexes' => true,
             'search_path' => 'public',
             'sslmode' => env('SUPABASE_DB_SSLMODE', 'require'),
+            // The transaction pooler (port 6543, used on Vercel) cannot keep server-side
+            // prepared statements between transactions, so let PDO emulate them there.
+            'options' => extension_loaded('pdo_pgsql') && env('SUPABASE_DB_EMULATE_PREPARES', false)
+                ? [PDO::ATTR_EMULATE_PREPARES => true]
+                : [],
         ],
 
         'sqlsrv' => [
