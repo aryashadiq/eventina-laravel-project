@@ -42,6 +42,10 @@
         "pre-autoload-dump": [
             "Aws\\Script\\Composer\\Composer::removeUnusedServices"
         ],
+        "vercel": [
+            "Aws\\Script\\Composer\\Composer::removeUnusedServices",
+            "@composer dump-autoload --no-dev --optimize --no-scripts"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi",
