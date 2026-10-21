@@ -1,0 +1,294 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Eventina modern UI styles (migrated into Tailwind build source) */
+:root {
+    --primary: #0b74ff;
+    --accent: #2dd4bf;
+    --muted: #6b7280;
+    --card: #ffffff;
+    --glass: rgba(255, 255, 255, 0.7);
+    --radius: 12px;
+    --shadow-sm: 0 6px 20px rgba(11, 116, 255, 0.08);
+    --shadow-md: 0 12px 34px rgba(11, 116, 255, 0.08);
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: Inter, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
+    color: #0f1724;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+.site-header {
+    background: #ffffff;
+    color: #0f1724;
+    padding: 18px 24px;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.04);
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    border-bottom: 1px solid rgba(15,23,36,0.04);
+}
+.site-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.brand .logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: linear-gradient(
+        135deg,
+        #fff 0%,
+        rgba(255, 255, 255, 0.12) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-weight: 800;
+}
+.brand h1 {
+    font-size: 18px;
+    margin: 0;
+}
+.top-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.top-nav a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+.top-nav a:hover {
+    background: rgba(11,116,255,0.06);
+}
+.btn {
+    background: var(--primary);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 700;
+    box-shadow: var(--shadow-sm);
+}
+.btn.ghost {
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid rgba(11, 116, 255, 0.12);
+    box-shadow: none;
+}
+.hero {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.04) 0%,
+        transparent 100%
+    );
+    padding: 26px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+}
+.container-card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+}
+.grid {
+    display: flex;
+    gap: 20px;
+}
+.col {
+    flex: 1;
+}
+.muted {
+    color: var(--muted);
+}
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e6eefb;
+    border-radius: 10px;
+    background: #fbfdff;
+    margin-top: 8px;
+}
+.flash {
+    padding: 12px;
+    border-radius: 10px;
+    background: #e8f9f1;
+    border: 1px solid #d3f1e6;
+    color: #0b6b4a;
+    margin-bottom: 12px;
+}
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.table th,
+.table td {
+    padding: 12px;
+    border-bottom: 1px solid #f1f7ff;
+    text-align: left;
+}
+.table thead th {
+    color: var(--muted);
+    font-size: 13px;
+}
+footer.site-footer {
+    padding: 18px 0;
+    color: var(--muted);
+    background: transparent;
+}
+
+/* Make footer content span the full viewport width while keeping inner spacing */
+footer.site-footer .site-container {
+    max-width: 100%;
+    margin: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@media (max-width: 900px) {
+    .grid {
+        flex-direction: column;
+    }
+    .top-nav {
+        display: none;
+    }
+    .mobile-menu {
+        display: block;
+    }
+}
+.mobile-menu {
+    display: none;
+}
+.small {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* subtle card hover */
+.card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 14px;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(2, 6, 23, 0.07);
+}
+
+/* Admin/DataTables overrides */
+.dataTables_wrapper .dataTables_length select,
+.dataTables_wrapper .dataTables_filter input {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #e6eefb;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    background: transparent;
+    border: 0;
+    color: var(--primary);
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+.dt-button {
+    background: var(--primary);
+    color: #fff;
+    border-radius: 8px;
+    padding: 6px 10px;
+}
+
+/* Admin action buttons */
+.btn-sm {
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+.btn-success {
+    background: #10b981;
+    color: #fff;
+}
+.btn-warning {
+    background: #f59e0b;
+    color: #fff;
+}
+.btn-outline-primary {
+    background: transparent;
+    border: 1px solid rgba(11, 116, 255, 0.12);
+    color: var(--primary);
+    padding: 8px 10px;
+    border-radius: 8px;
+}
+
+/* dotted page background used on header/hero areas */
+.page-dots {
+    background-image: radial-gradient(rgba(15,23,36,0.04) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+/* center the main nav while keeping logo and auth area at edges */
+.main-nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+.main-nav a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+.main-nav a:hover { background: rgba(11,116,255,0.06); }
+
+/* Hero / title styles to match screenshots */
+.hero { background: transparent; padding: 40px 0; box-shadow: none; }
+.text-5xl { font-size: 48px; }
+.text-primary { color: var(--primary); }
+.btn-primary { background: var(--primary); color: #fff; padding: 12px 18px; border-radius: 10px; display:inline-block; }
+
+.w-11\/12 { width: 91.666667%; }
+
+/* Feature cards and layout */
+.feature.card { padding: 14px; border-radius: 12px; background: #fff; width:100%; box-shadow: 0 10px 30px rgba(2,6,23,0.04); }
+.feature .icon { width:40px; height:40px; display:flex; align-items:center; justify-content:center; border-radius:8px; }
+.bg-primary { background: var(--primary); }
+
+/* large blue CTA banner */
+.call-to-action.container-card { background: var(--primary); color: #fff; border-radius: 12px; padding: 40px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+.call-to-action .btn { box-shadow: none; }
+
+/* footer: keep full width from earlier patch */
+footer.site-footer { border-top: 1px solid rgba(15,23,36,0.04); }
+
+@media (max-width: 900px) {
+    .main-nav { position: static; transform: none; display: none; }
+    .mobile-menu { display: block; }
+    .call-to-action.container-card { flex-direction: column; text-align:center; }
+}
